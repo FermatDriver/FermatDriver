@@ -1,0 +1,2 @@
+- `fast strategy`: source codes of FermatDriver adopting fast collection strategy
+- `general and reliable`: source codes of FermatDriver adopting general and reliable collection strategy
