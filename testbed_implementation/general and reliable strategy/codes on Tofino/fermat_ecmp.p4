@@ -892,7 +892,7 @@ bit<2> ll=0;
 
 
 
-action calfp()//计算index
+action calfp()//index
     {
         hdr.bridge.newid[29:16]=hash_fp.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:0]});
     }
@@ -902,7 +902,7 @@ action calfp()//计算index
         default_action=calfp;
     }
 
-action calindex_layer_1()//计算index
+action calindex_layer_1()//index
     {
         index1[12:2]=hash_1.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:0]});
     }
@@ -911,7 +911,7 @@ action calindex_layer_1()//计算index
         actions={calindex_layer_1;}
         default_action=calindex_layer_1;
     }
-action calindex_layer_2()//计算index
+action calindex_layer_2()//index
     {
         index2[12:2]=hash_2.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:0]});
     }
@@ -920,7 +920,7 @@ action calindex_layer_2()//计算index
         actions={calindex_layer_2;}
         default_action=calindex_layer_2;
     }
-action calindex_layer_3()//计算index
+action calindex_layer_3()//index
     {
         index3[12:2]=hash_3.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:0]});
     }
@@ -931,7 +931,7 @@ action calindex_layer_3()//计算index
     }
 
 
-action calfpi()//计算index
+action calfpi()//index
     {
         fingerprint=hash_fpi.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:2],errorcode});
     }
@@ -941,7 +941,7 @@ action calfpi()//计算index
         default_action=calfpi;
     }
 
-action calindex_layer_i1()//计算index
+action calindex_layer_i1()//index
     {
         hdr.bridge.indexi1[12:2]=hash_i1.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:2],errorcode});
     }
@@ -950,7 +950,7 @@ action calindex_layer_i1()//计算index
         actions={calindex_layer_i1;}
         default_action=calindex_layer_i1;
     }
-action calindex_layer_i2()//计算index
+action calindex_layer_i2()//index
     {
         hdr.bridge.indexi2[12:2]=hash_i2.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:2],errorcode});
     }
@@ -959,7 +959,7 @@ action calindex_layer_i2()//计算index
         actions={calindex_layer_i2;}
         default_action=calindex_layer_i2;
     }
-action calindex_layer_i3()//计算index
+action calindex_layer_i3()//index
     {
         hdr.bridge.indexi3[12:2]=hash_i3.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,hdr.bridge.newid[15:2],errorcode});
     }
@@ -969,7 +969,7 @@ action calindex_layer_i3()//计算index
         default_action=calindex_layer_i3;
     }
 bit<3> ecmp=0;
-action cal_ecmp()//计算index
+action cal_ecmp()//index
     {
         ecmp=hash_ecmp.get({hdr.ipv4.src_addr,hdr.ipv4.dst_addr,hdr.bridge.ll,meta.protocol});
     }
@@ -979,7 +979,7 @@ action cal_ecmp()//计算index
         default_action=cal_ecmp;
     }
 
-action ecmp_select(PortId_t port)//计算index
+action ecmp_select(PortId_t port)//index
     {
         ig_tm_md.ucast_egress_port=port;
     }
